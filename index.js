@@ -38,13 +38,14 @@ btn.addEventListener('click', () => {
   );
   url.searchParams.set('genre', selectedValue);
 
-  alert(url);
+  //alert(url);
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      movieList.innerHTML = data.map((item) => {
-        // alert(item.title);
-        return `
+      movieList.innerHTML = data
+        .map((item) => {
+          // alert(item.title);
+          return `
           <li class="movie-detail">
           <div class="movie-poster">
            <img
@@ -62,7 +63,8 @@ btn.addEventListener('click', () => {
          </div>
         </li>
         `;
-      });
+        })
+        .join('');
     });
 });
 

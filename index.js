@@ -1,4 +1,3 @@
-console.log('funguju!');
 const movieList = document.querySelector('.movie-list');
 
 // fetch('https://apps.kodim.cz/daweb/trening-api/apis/movie-api/movies').then(
@@ -34,7 +33,6 @@ const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
   const select = document.querySelector('#select-genre');
   const selectedValue = select.value;
-  alert(selectedValue);
   let url = new URL(
     'https://apps.kodim.cz/daweb/trening-api/apis/movie-api/movies',
   );
@@ -44,9 +42,8 @@ btn.addEventListener('click', () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      alert(data);
       movieList.innerHTML = data.map((item) => {
-        alert(item.title);
+        // alert(item.title);
         return `
           <li class="movie-detail">
           <div class="movie-poster">
